@@ -1,4 +1,4 @@
-# How to run
+# How to run API
 
 - Create python venv and install dependencies
 

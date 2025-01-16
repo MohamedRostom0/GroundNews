@@ -8,6 +8,14 @@ import time
 from openai import OpenAI
 import os
 from decouple import config
+import os
+from langchain.llms import OpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+from langchain.chains import RetrievalQA
+
 
 
 # Initialize the NLP model (Sentiment Analysis pipeline as an example)
@@ -133,4 +141,37 @@ async def query_pinecone(input_data: ArticlesInput):
         # result.append(PineconeQueryResponse(id=))
     
     return result
+
+
+@app.post("/vote", response_model=List[PineconeQueryResponse])
+async def vote(input_data: userVote):
+    clarification_template = PromptTemplate(
+    input_variables=["query"],
+    template="Please clarify this query and make it informative to be use in RAG : {query}"
+    
+    qa_template = PromptTemplate(
+    input_variables=["context", "question"],
+    template="""Use the following context to answer the question at the end. 
+    Context: {context}
+    Question: {question}"""
+)
+    clarification_chain = LLMChain(llm=OpenAI(temperature=0), prompt=clarification_template)
+    qa_chain = LLMChain(llm=OpenAI(temperature=0), prompt=qa_template)
+    
+    clarified_query = clarification_chain.run(query)
+
+    docs = db.similarity_search(clarified_query, k=3) 
+    
+    context = "\n".join([doc.page_content for doc in docs])
+    
+    answer = qa_chain.run(
+        question="Here are the three possible parties' polities for me to vote and my question is which one is the best for me?  My opinion is ${userVote} . If there is two parties that are the same, tell me both of them.
+         ",
+        context=context)
+    return answer
+
+
+
+)
+
 

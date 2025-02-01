@@ -13,7 +13,6 @@ class MyPipeline:
         return self.embeddings_model.encode(texts)
 
     def do_sentiment_analysis(self, text: str):
-        print(text)
         result = self.sentiment_model(text[:512])
         sentiment = result[0]['label']
         score = result[0]['score']

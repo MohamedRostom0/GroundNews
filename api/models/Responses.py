@@ -24,3 +24,8 @@ class PineconeQueryResponse(BaseModel):
     image_url: str
     embedding: List[float]
     sentiment: str
+
+class PartyPCResponse(BaseModel):
+    partyName: str
+    fullText: str
+    chunkText: str

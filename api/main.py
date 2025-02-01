@@ -8,8 +8,10 @@ import time
 from openai import OpenAI
 import os
 from decouple import config
+import json
 import os
-from langchain.llms import OpenAI
+# from langchain_community.llms import OpenAI
+import langchain as lc
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -36,13 +38,17 @@ client = OpenAI(api_key=openai_api_key)
 # TODO: De-couple from this file
 key = config("PINECONE_KEY")
 pc = Pinecone(api_key=key)
-index_name = "nlp-project-2"
+index_name = "nlp-project-5"
+parties_index_name = "german-parties-2"
 # Wait for the index to be ready
 while not pc.describe_index(index_name).status['ready']:
+    time.sleep(1)
+while not pc.describe_index(parties_index_name).status['ready']:
     time.sleep(1)
 
 # Initialize Pinecone Index
 index = pc.Index(index_name)
+parties_index = pc.Index(parties_index_name)
 
 
 @app.post("/get-embeddings/", response_model=EmbeddingResponse)
@@ -91,8 +97,13 @@ async def query_pinecone(input_data: ArticlesInput):
 
 
         for match in query_result["matches"]:
-            content_summary = pipeline_instance.summarize_text(match['metadata']['content'])
-            result.append(PineconeQueryResponse(id=match['id'], summary=content_summary, content=match['metadata']['content'], title=match['metadata']['title'], image_url=match['metadata']['image_url'], embedding=match['values'], sentiment="Positive"))
+            with open(f"./data/{match['id']}.txt", "r") as file:
+                content = file.read()
+
+            content_summary = pipeline_instance.summarize_text(content)
+
+
+            result.append(PineconeQueryResponse(id=match['id'], summary=content_summary, content=content, title=match['metadata']['title'], image_url=match['metadata']['image_url'], embedding=match['values'], sentiment="Positive"))
 
         # print(query_result)
         # result.append(PineconeQueryResponse(id=))
@@ -134,8 +145,11 @@ async def query_pinecone(input_data: ArticlesInput):
 
         for match in query_result["matches"]:
             sentiment = pipeline_instance.do_sentiment_analysis(match['metadata']['summary'])
+
+            with open(f"./data/{match['id']}.txt", "r") as file:
+                content = file.read()
             # embedding=match['values']
-            result.append(PineconeQueryResponse(id=match['id'], summary=match['metadata']['summary'], content=match['metadata']['content'], title=match['metadata']['title'], image_url=match['metadata']['image_url'], embedding=[], sentiment=sentiment[0]))
+            result.append(PineconeQueryResponse(id=match['id'], summary=match['metadata']['summary'], content=content, title=match['metadata']['title'], image_url=match['metadata']['image_url'], embedding=[], sentiment=sentiment[0]))
 
         # print(query_result)
         # result.append(PineconeQueryResponse(id=))
@@ -143,35 +157,179 @@ async def query_pinecone(input_data: ArticlesInput):
     return result
 
 
-@app.post("/vote", response_model=List[PineconeQueryResponse])
-async def vote(input_data: userVote):
+@app.post("/vote")
+async def vote(input_data: str):
+    with open('./data/likes.json', "r") as file:
+        likedIds = json.load(file)
+
+    liked_articles = index.fetch(namespace='news_namespace', ids=likedIds)
+    liked_summaries = []
+    for id in likedIds:
+        # print(liked_articles['vectors'][id]['metadata']['summary'])
+        liked_summaries.append(liked_articles['vectors'][id]['metadata']['summary'])
+
+    # with open('./logs.json', "w") as file:
+    #     json.dump(liked_articles_dict, file, indent=4)
+
+
     clarification_template = PromptTemplate(
-    input_variables=["query"],
-    template="Please clarify this query and make it informative to be use in RAG : {query}"
+        input_variables=["query"],
+        template="Please clarify this query and make it informative to be used in RAG: {query}"
+    )
     
     qa_template = PromptTemplate(
-    input_variables=["context", "question"],
-    template="""Use the following context to answer the question at the end. 
-    Context: {context}
-    Question: {question}"""
-)
-    clarification_chain = LLMChain(llm=OpenAI(temperature=0), prompt=clarification_template)
-    qa_chain = LLMChain(llm=OpenAI(temperature=0), prompt=qa_template)
+        input_variables=["context", "question"],
+        template="""Use the following context to answer the question at the end. 
+        Context: {context}
+        Question: {question}"""
+    )
     
-    clarified_query = clarification_chain.run(query)
+    # Define the chains
+    clarification_chain = LLMChain(llm=lc.OpenAI(temperature=0, openai_api_key=openai_api_key), prompt=clarification_template)
+    qa_chain = LLMChain(llm=lc.OpenAI(temperature=0, openai_api_key=openai_api_key), prompt=qa_template)
+    
+    
+    # Clarify the user's query
+    clarified_query = await clarification_chain.arun(query=input_data)
+    
+    # Perform similarity search in the vector database
+    # docs = db.similarity_search(clarified_query, k=3)  # Replace `db` with your database object
+    embedding_vector = None
+    try:
+        # Generate embedding
+        response = client.embeddings.create(
+            input=clarified_query.strip(),
+            model="text-embedding-ada-002"
+        )
 
-    docs = db.similarity_search(clarified_query, k=3) 
+        # Extract embedding vector
+        embedding_vector = response.data[0].embedding
+    except Exception as e:
+        print(f"Error processing row: {e}")
+
+
+    res = parties_index.query(
+            namespace="parties_namespace",
+            vector=embedding_vector,
+            top_k=5,  # Number of similar results to retrieve
+            include_metadata=True,  # Include metadata in the results
+            include_values=False
+        )
+    docs = []
+    for match in res["matches"]:
+        docs.append(match['metadata']['chunkTxt'])
+
     
-    context = "\n".join([doc.page_content for doc in docs])
+    # Combine the relevant context
+    context = "\n".join([doc for doc in docs])
     
-    answer = qa_chain.run(
-        question="Here are the three possible parties' polities for me to vote and my question is which one is the best for me?  My opinion is ${userVote} . If there is two parties that are the same, tell me both of them.
-         ",
-        context=context)
+    # Formulate the question based on user input and context
+    question = (
+        "Here are the three possible parties' policies for me to vote on. "
+        f"My question is: which one is the best for me? My opinion is {input_data}. "
+        "If two parties are equally suitable, mention both of them."
+    )
+    
+    # Generate the answer
+    answer = await qa_chain.arun(context=context, question=question)
+    
+    return answer
+
+
+@app.post("/vote2")
+async def vote2(input_data: str):
+    with open('./data/likes.json', "r") as file:
+        likedIds = json.load(file)
+
+    liked_articles = index.fetch(namespace='news_namespace', ids=likedIds)
+    liked_summaries = [
+        liked_articles['vectors'][id]['metadata']['summary'] for id in likedIds
+    ]
+
+    clarification_template = PromptTemplate(
+        input_variables=["query"],
+        template="Please clarify this query and make it informative to be used in RAG: {query}"
+    )
+
+    qa_template = PromptTemplate(
+        input_variables=["context", "liked_summaries", "question"],
+        template="""
+        Use the following context and previously liked articles to answer the question:
+        
+        ### Previously Liked Articles:
+        {liked_summaries}
+        
+        ### Context:
+        {context}
+        
+        ### Question:
+        {question}
+        """
+    )
+
+    # Define the chains
+    clarification_chain = LLMChain(llm=lc.OpenAI(temperature=0, openai_api_key=openai_api_key), prompt=clarification_template)
+    qa_chain = LLMChain(llm=lc.OpenAI(temperature=0, openai_api_key=openai_api_key), prompt=qa_template)
+
+    # Clarify the user's query
+    clarified_query = await clarification_chain.arun(query=input_data)
+
+    # Generate embedding for similarity search
+    embedding_vector = None
+    try:
+        response = client.embeddings.create(
+            input=clarified_query.strip(),
+            model="text-embedding-ada-002"
+        )
+        embedding_vector = response.data[0].embedding
+    except Exception as e:
+        print(f"Error processing row: {e}")
+
+    # Perform similarity search
+    res = parties_index.query(
+        namespace="parties_namespace",
+        vector=embedding_vector,
+        top_k=5,
+        include_metadata=True,
+        include_values=False
+    )
+
+    docs = [match['metadata']['chunkTxt'] for match in res["matches"]]
+
+    # Combine the relevant context
+    context = "\n".join(docs)
+
+    # Formulate the question with liked_summaries
+    question = (
+        "Here are the three possible parties' policies for me to vote on. "
+        f"My question is: which one is the best for me? My opinion is {input_data}. "
+        "If two parties are equally suitable, mention both of them."
+    )
+
+    # Generate the answer, including liked_summaries in the prompt
+    answer = await qa_chain.arun(
+        context=context, 
+        liked_summaries="\n".join(liked_summaries),
+        question=question
+    )
+
     return answer
 
 
 
-)
+@app.post("/like")
+async def like_article(postId: str):
+    likes = []
+    with open('./data/likes.json', "r") as file:
+        likes = json.load(file)
+
+    if postId not in likes:
+        likes.append(postId)
+    else:
+        likes.remove(postId)
 
 
+    with open('./data/likes.json', "w") as file:
+        json.dump(likes, file)
+
+    return likes

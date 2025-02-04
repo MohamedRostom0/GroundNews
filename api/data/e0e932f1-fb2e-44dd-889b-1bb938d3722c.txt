@@ -1,0 +1,91 @@
+As Germany gears for a general election, Elon Musk and Alice Weidel chatted about a range of topics, inluding energy, Ukraine, migration and education. DW checked the facts.
+X owner Elon Musk spoke with the co-leader and chancellor candidate of the Alternative for Germany party (AfD), Alice Weidel, in a live conversation on his social media platform.
+With early elections set for February 23, Weidel's AfD is polling in second place among the parties, somewhere in the region of 20%.
+Germany's established political parties have, however, all ruled out cooperating with the AfD in potential federal coalitions, meaning Weidel and the party's prospects of governing are poor.
+This blog is now closed. Scroll through for fact-checking of some of the claims raised during the talk, explainers and reactions.
+Marietje Schaake, a fellow at Stanford University and the author of the book "The Tech Coup, How To Save Democracy From Silicon Valley," called the talk between tech billionaire Elon Musk and AfD leader Alice Weidel "very awkward, uncomfortable and underwhelming."
+She also added that there were not that many people and she had expected a bigger audience. "I think all the fears about this having a major impact are probably not going to be substantiated," the expert added.
+Schaake said that Musk is platforming far-right politicians and parties, not only through the streams, but also "through the algorithm, through the ranking and the curation of information on his platform, which is very influential."
+It remains to be seen whether that will have a big impact, Schaake said. "But I think the fact that he (Musk), as a confidant of President Trump, is trying to support these fringe parties, these far-right anti-establishment populist parties, says a lot," she added.
+"And we must see it as being condoned by Trump, endorsed by Trump and really as a precursor for a dramatic change in the trans-Atlantic relation," Schaake stressed.
+To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+The claim:"[Angela Merkel] enforced, without asking the people, she enforced to open our borders to illegal immigration,“ Alice Weidel said during the live talk.
+The facts: Alice Weidel is referring to the events of early September 2015, when thousands of refugees made their way from Hungary to Germany via Austria. Then-Chancellor Angela Merkel decided not to close the border to stop them and temporarily suspended rules which would have meant return to the first EU country or safe transit country. This decision has been highly debated ever since.
+The claim that Merkel "opened" the borders, is not accurate: In 2015, all of Germany‘s neighboring countries were part of the so-called Schengen area, meaning that there were no border controls between any of those countries and Germany.
+On 13 September 2015, the German government instituted temporary border controls with Austria.
+There has been debate about whether or not the government should have stopped the refugees from entering Germany in the first place. The country‘s immigration law states that foreigners shall be refused entry if they enter from a safe third country, which Austria is.
+The German government has argued that it acted in accordance with the EU’s Dublin III Regulations on immigration, which allow a state to examine someone’s asylum application even if it is not obliged to.
+The European Court of Justice in 2017 confirmed that EU states may indeed take in asylum seekers voluntarily, but that such border crossings may still be illegal under the Dublin Regulation.
+The far-right Alternative for Germany (AfD) secured just over 30% of the vote in recent state elections in Thuringia and Saxony, which was partly attributed to the party's effectiveness at reaching first-time voters on TikTok.
+A study last year showed that politicians and figures linked to the AfD used TikTok as a "parallel universe" to spread extremism, while other German parties show "weak performance" on the platform.
+This campaigning strategy, with a heavy focus on social media messaging and avenues traditional political campaigning might not reach, is also reminiscent of Donald Trump's own tactics.
+Read DW's analysis on how social media can shape Germany's election campaign.
+The claim: Alice Weidel claimed during the Space with Musk, that "nuclear energy supply is carbon-free."
+The facts: By some institutions nuclear energy is considered a carbon-free source of electricity because it does not produce carbon dioxide (CO2) or other greenhouse gases during its operation. But considering the entire life cycle of a nuclear plant, nuclear energy produces emissions. The life cycle emissions of nuclear power plants include all stages from uranium mining to plant construction, operation, decommissioning, and waste management. Nuclear energy certainly has lower CO2 emissions than coal or natural gas, but it is not "carbon free."
+The figures on how much CO2 a nuclear power plant generates per kilowatt-hour vary: In 2014, an IPCC report estimated a range from 4 to 110 grams of CO2 equivalent per kilowatt-hour (kWh) – so not carbon neutral.
+A UK-based study found that nuclear power has a minimal carbon footprint of around 15–50 grams of CO2 per kilowatt hour.
+The processes to mine and refine uranium ore require huge amounts of energy, often from fossil fuels. And the construction of a nuclear plant, with the large amounts of concrete and steel needed, is also a significant cause of CO2 emissions.
+The claim: Elon Musk presented Alice Weidel in the title of his Space as "the leading candidate to run Germany."
+The facts: Alice Weidel's far-right Alternative for Germany party (AfD) is in second place according to surveys ahead of the upcoming federal elections in Germany.
+The center-right CDU and CSU, which are running together are currently the strongest political force in Germany with 31%, based on the most recent polling, the ARD Deutschlandtrend. The AfD is polling at around 20%.
+In terms of individual candidates, Musk's description of Alice Weidel was not correct. Based on the same nationwide survey, which is conducted by infratest-dimap, Alice Weidel came in fifth when it comes to satisfaction with the work of various candidates.
+Only 20% of respondents said they were satisfied with Alice Weidel as a candidate for chancellor. She was behind Robert Habeck, the chancellor candidate for the Greens on 28%, the CDU's Friedrich Merz on 25%, Sarah Wagenknecht, with her own new eponymous party BSW on 21%, and the pro-business FDP's Christian Lindner also on 21%.
+Olaf Scholz, the incumbent German chancellor from the center-left SPD, ranked similarly to Weidel, although other polls have shown her ahead of Merz and Scholz. Nevertheless, most polls do not show Weidel with a chance of winning the German election.
+Several of the questions Weidel put to Musk in the final minutes of the conversation pertained to his stated desire to colonize Mars.
+He initially ducked the question of when he hoped for a first crewed mission to the Red Planet, but said "it is just a matter of time before we are annihilated" if humanity does not become a "multi-planetary species."
+Musk later said the next window for a mission would be in roughly two years, adding that this window might be viable for an uncrewed mission.
+Weidel also asked Musk if he believed in God, following up on comments he'd made about how the elements making up human bodies ultimately hail from stars that exploded billions of years ago. She asked if he believed it was possible for this to be a coincidence.
+Neither of the speakers went on to offer a firm position themselves. Musk said he was "open to the idea" of "some entity that you could call God," but less so on one "observing our daily actions and rendering a verdict day-to-day." Weidel, meanwhile, said "I'm still on a search" and "I don't know what to believe," saying she was "agnostic maybe."
+Claim: "Theft is legal in California," Elon Musk claimed, adding that if stolen goods are below $1,000 (around €970), thieves allegedly won't be prosecuted.
+The facts: Theft is not legal in California, as can be seen for example in this press release by the Governor of the state reporting about a statewide enforcement operation targeting organized retail theft crime.
+The claim, which has previously been stated by Donald Trump, refers to Proposition 47, a significant criminal justice reform approved by California voters in 2014, aimed to reduce penalties for certain theft and drug possession offenses.
+Under Proposition 47, which was passed in 2014, theft of goods valued at $950 or less is classified as a misdemeanor, not a felony. This reclassification was part of a broader criminal justice reform effort aimed at reducing prison overcrowding. However, theft under $950 is still illegal and punishable by up to six months in jail and fines up to $1,000.
+Proposition 47 did not decriminalize theft but changed how crimes are prosecuted. The law eliminated the discretion of prosecutors to charge theft under $950 as a felony, except in cases involving repeat offenders or certain aggravating circumstances. While enforcement may be constrained in some cases due to practical considerations like jail overcrowding, law enforcement agencies and the California Highway Patrol continue to target theft, especially organized retail crime.
+For instance, statewide operations in December continued to lead to arrests, recovery of stolen goods, and measures to deter retail theft.
+Around 40 minutes into the discussion, Musk alluded both to Germany's Nazi past and to the AfD's common categorization as a far-right party, asking Weidel to comment on this.
+She said her party was a "conservative" and "libertarian" one unfairly branded as extreme domestically.
+The AfD is facing investigation as a potential far-right extremist group, and unsuccessfully appealed against this process earlier in the year. Those supporting this claim will often point to the comments and actions of party leaders deemed more extreme than Weidel  when making their case.
+Weidel also claimed, using a trope that's rather more common in the English-speaking world than it is in Germany, that Adolf Hitler was not right-wing, but rather left-wing.
+Pointing to his command economy policies and heavy state spending, as he geared Germany up for rapid rearmament and war with almost all of Europe, Weidel argued that the keyword defining Hitler and the Nazis was "Socialist," not the word "National" that they saw fit to put in front of it when naming themselves.
+Hitler himself had said at the time that he wanted to reclaim the term socialism from the "Marxists," who he argued had sullied what could be a viable big-state economic policy basis.
+Claim: During her talks with the US billionaire Elon Musk on the social media platform X, the AfD leader Alice Weidel claimed, "Germany is the only industrial country that unplugged the nuclear power plant."
+The facts: Italy shut its nuclear plants more than three decades before Germany. Shortly after the Chernobyl disaster, a nationwide referendum was held in Italy in 1987. According to the Italian Interior Ministry's archives, nearly 80% of participants voted in favor of shutting down the country's nuclear plants. By 1990, Italy had phased out all its existing nuclear facilities. In comparison, Germany closed its last remaining nuclear plants in 2023.
+Between 100,000 and 200,000 people tuned in for the discussion, according to X's own online statistics. An audience of around 100,000 nearer the start of the conversation cleared 200,000 just after half past the hour.
+The opening quarter of an hour was spent in large part discussing German energy policy, after Weidel referred to former Chancellor Angela Merkel as "Germany's first green chancellor", seemingly in reference to her push for more renewable energy, a move that began long before Merkel's tenure.
+Weidel was critical of usage of solar and wind power, a notion Musk sought to push back against somewhat.
+She also said that Germany's reliance on Russian gas had been exposed amid the invasion of Ukraine, and criticized the use of coal temporarily to plug gaps.
+Weidel claimed that Merkel had "ruined our country," primarily because of high migration in and since 2015.
+She also complained about her party's public treatment in the "mainstream media" in Germany.
+In a discussion you could kindly categorize as free-flowing or less kindly as unstructured, the pair also covered topics like German schoolchildren struggling in international PISA studies, with Weidel alleging the falling German scores could be traced to topics like "socialist gender things" dominating time in class.
+To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+The discussion between Musk and Weidel started roughly on time just after 7 p.m. German time.
+Even its heading on Musk's X account was rather misleading for those tuning in unfamiliar with German politics.
+"Conversation with the leading candidate to run Germany," the discussion was initially billed as.
+Weidel is the AfD's leading candidate to run Germany. She's also at the head of the party with a realistic chance of coming second, if a rather distant second, based on current polls.
+However her chances of becoming chancellor after the vote on February 23, with roughly 20% public support and nobody willing to be a coalition partner, are virtually nil barring a political earthquake.
+Even prior to Thursday evening's online discussion, the German Bundestag parliament's administrative arm is eying it as a potential violation of campaign financing rules.
+The Bundestagsverwaltung said on Thursday that it would monitor the discussion in case it violated rules on influencing the upcoming election or party campaign donations.
+Analysts quoted in Thursday's papers in Germany expressed skepticism about the potential for rule breaches emerging in these areas. They pointed to factors like the discussion being aired without charge and also to free speech laws that would cover Musk repeating an endorsement of the AfD or Weidel.
+However, the Lobby Control group, which campaigns for the reduced influence of lobbyists in German and EU politics, argues that manipulating X's algorithms to boost the discussion's prominence and reach could constitute an illegal campaign donation.
+Aurel Eschmann from Lobby Control told DW that Musk's account's "reach is much higher than for a user with a similar follower count that isn't the owner of X."
+"And since the service of this boost in reach is supplied to the party AfD for free, this would constitute a party donation," he argued.
+A spokesperson for Weidel referred to the online event as an "unprepared and open discussion," also saying that the pair had yet to meet.
+The AfD faced a large fine for illegal campaign funding a few years ago that dated back to the 2016 state elections in Baden Württemberg in the southwest.
+To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+As of mid-December, the far-right party was polling at nearly 20%, second among the parties, behind the conservative CDU. That's nearly double its 2021 general election result.
+The AfD has poached voters from all the other major parties except the Greens, and has simultaneously succeeded in mobilizing many non-voters.
+The party scores best among middle-income to low-income earners — though that is by no means its exclusive voter base, and draws voters from across social classes. It is especially successful in Germany's east. Its membership, meanwhile, has one significant feature — only 17% are women.
+Founded in 2013 as a euroskeptic party, the AfD has since risen to the federal as well as every state parliament in regional elections as well as the European parliament.
+It was originally created by a group of neo-liberal academics as a protest against the single European currency. They were angered specifically by then-Chancellor Angela Merkel's decision to bail out Greece in 2010 following Europe's financial crisis.
+But following Germany's move to welcome refugees mainly from war-torn Syria in 2015, the party set an overtly nationalist, anti-immigrant, anti-Islam agenda.
+Read more on Germamy's political parties.
+Alice Weidel belongs to a very small minority. She is one of nine women in the parliamentary group of the AfD — 69 men make up the rest.
+She co-chairs both the party itself and its parliamentary group, together with Tino Chrupalla. Weidel also ran on a joint ticket with Chrupalla in the last federal election in 2021. The result back then was disappointing for the AfD: they won 10.3%, down from 12.6% in 2017.
+The 45-year-old has a doctorate in economics. In the late 2000s, she worked at the Bank of China and lived in China for six years where she learned to speak Mandarin.
+Weidel has previously expressed admiration of Margaret Thatcher, Britain's prime minister from 1979 to 1990.
+Her private life has been used by Musk to dismiss the far-right label of the AfD, as she lives in a civil partnership with a woman who originally comes from Sri Lanka. Together, they have two adopted children.
+That lifestyle is a far cry from the AfD's ideals. In the party's manifesto, the party is committed to the model of the traditional family, one in which "mother and father take permanent joint responsibility for their children."
+The AfD's candidate for chancellor lives in Germany and Switzerland. Read more on her political views.
+Manfred Weber, leader of the EPP conservative bloc in the European Parliament, has told DW that it is not in Elon Musk's business interests to support Germany's far-right AfD.
+He also said Germany and Europe should be more self-confident, and not take everything the Tesla and SpaceX founder says "too seriously."
+To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video

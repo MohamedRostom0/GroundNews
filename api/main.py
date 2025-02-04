@@ -38,7 +38,7 @@ client = OpenAI(api_key=openai_api_key)
 # TODO: De-couple from this file
 key = config("PINECONE_KEY")
 pc = Pinecone(api_key=key)
-index_name = "nlp-project-5"
+index_name = "nlp-project-final"
 parties_index_name = "german-parties-2"
 # Wait for the index to be ready
 while not pc.describe_index(index_name).status['ready']:
@@ -328,6 +328,16 @@ async def like_article(postId: str):
     else:
         likes.remove(postId)
 
+
+    with open('./data/likes.json', "w") as file:
+        json.dump(likes, file)
+
+    return likes
+
+
+@app.delete("/purge/likes")
+async def like_article():
+    likes = []
 
     with open('./data/likes.json', "w") as file:
         json.dump(likes, file)

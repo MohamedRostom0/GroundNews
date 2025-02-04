@@ -27,6 +27,7 @@ all_domain = []
 all_queries = []
 all_descriptions = []
 all_image_urls = []
+all_ids = []
 
 for i, item in enumerate(data):
     all_embeddings.append(ast.literal_eval(item['embeddings']))
@@ -38,6 +39,7 @@ for i, item in enumerate(data):
     all_queries.append(item.get('query', ""))
     all_image_urls.append(item.get('image_url', ""))
     all_descriptions.append(item['description'])
+    all_ids.append(item['id'])
 
 
 
@@ -71,7 +73,7 @@ for i,label in enumerate(labels):
     clusters[str(label)] = []
    
    sentiment = pipeline_instance.do_sentiment_analysis(all_summaries[i])
-   obj = {'title': all_titles[i], 'summary': all_summaries[i], 'content': all_content[i], 'publishedAt': all_published_at[i], 'domain': all_domain[i], 'query': all_queries[i], 'image_url': all_image_urls[i], 'description': all_descriptions[i], 'sentiment': sentiment[0],"label":str(label)}
+   obj = {'id': all_ids[i] ,'title': all_titles[i], 'summary': all_summaries[i], 'content': all_content[i], 'publishedAt': all_published_at[i], 'domain': all_domain[i], 'query': all_queries[i], 'image_url': all_image_urls[i], 'description': all_descriptions[i], 'sentiment': sentiment[0],"label":str(label)}
    clusters[str(label)].append(obj)
 
 # Write the dictionary to a JSON file

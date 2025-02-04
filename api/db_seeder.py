@@ -15,7 +15,7 @@ pipeline_instance = MyPipeline()
 pc = Pinecone(api_key=key)
 
 # Define index name and dimensions
-index_name = "nlp-project-5"
+index_name = "nlp-project-final"
 embedding_dimension = 1536  # The dimensions should match the output of your embedding model
 
 
@@ -25,7 +25,7 @@ while not pc.describe_index(index_name).status['ready']:
 
 # Your JSON data (reduced example)
 
-with open("./data_31Jan.json") as f:
+with open("./final_data.json") as f:
   data = json.load(f)
 
 

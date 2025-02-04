@@ -17,6 +17,7 @@ from langchain.prompts import PromptTemplate
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
+from fastapi.middleware.cors import CORSMiddleware 
 
 
 
@@ -236,8 +237,14 @@ async def vote(input_data: str):
     return answer
 
 
+class VoteRequest(BaseModel):
+    query: str
+
 @app.post("/vote2")
-async def vote2(input_data: str):
+async def vote2(input_data: VoteRequest):
+    # Extract query from the input JSON
+    user_query = input_data.query
+
     with open('./data/likes.json', "r") as file:
         likedIds = json.load(file)
 
@@ -272,7 +279,7 @@ async def vote2(input_data: str):
     qa_chain = LLMChain(llm=lc.OpenAI(temperature=0, openai_api_key=openai_api_key), prompt=qa_template)
 
     # Clarify the user's query
-    clarified_query = await clarification_chain.arun(query=input_data)
+    clarified_query = await clarification_chain.arun(query=user_query)
 
     # Generate embedding for similarity search
     embedding_vector = None
@@ -302,7 +309,7 @@ async def vote2(input_data: str):
     # Formulate the question with liked_summaries
     question = (
         "Here are the three possible parties' policies for me to vote on. "
-        f"My question is: which one is the best for me? My opinion is {input_data}. "
+        f"My question is: which one is the best for me? My opinion is {user_query}. "
         "If two parties are equally suitable, mention both of them."
     )
 
@@ -315,6 +322,13 @@ async def vote2(input_data: str):
 
     return answer
 
+app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:3000"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 
 @app.post("/like")

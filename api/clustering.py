@@ -15,7 +15,7 @@ from sklearn.manifold import TSNE
 
 pipeline_instance = MyPipeline()
 
-with open("./data_31Jan.json") as f:
+with open("./final_data.json") as f:
   data = json.load(f)
 
 all_embeddings = []
@@ -63,7 +63,7 @@ embeddings_2d = tsne.fit_transform(l_normalized)
 # Plot the data
 
 
-dbscan = DBSCAN(eps=1.5, min_samples=2)  # Adjust eps as needed
+dbscan = DBSCAN(eps=1.8, min_samples=2)  # Adjust eps as needed
 labels = dbscan.fit_predict(embeddings_2d)
 
 
